@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 [[ -d /etc/profile.d ]] && \
-cat > /etc/profile.d/ns_custom_bash <<EOF
+sudo cat > /etc/profile.d/ns_custom_bash <<EOF
 # Memory
 HISTSIZE=10000
 # Disk
@@ -21,4 +21,8 @@ export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 
 export EDITOR=$(which vim || which vi)
 export VISUAL=$(which vim || which vi)
+EOF
+
+cat > ${HOME}/.inputrc <<EOF
+set editing-mode vim
 EOF
